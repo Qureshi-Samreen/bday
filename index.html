@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Bisma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styling */
+       /* General Styling */
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff8c8c, #f8c8d2);
+    background-size: 400% 400%;
+    animation: gradientMove 8s ease infinite;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    flex-direction: column;
+    position: relative;
+    overflow-y: auto;  /* Change from hidden to auto to allow scrolling */
+}
+
+
+        /* Background Gradient Animation */
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Flower Shower Animation */
+        .flower {
+            position: absolute;
+            top: -10%;
+            font-size: 24px;
+            animation: fall 5s infinite linear;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Randomizing Flower Position */
+        .flower:nth-child(odd) {
+            left: 10%;
+            animation-duration: 6s;
+            animation-delay: 2s;
+        }
+        .flower:nth-child(even) {
+            left: 80%;
+            animation-duration: 7s;
+            animation-delay: 1s;
+        }
+
+        /* Header Text Styling */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: #fff;
+            margin-bottom: 30px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        /* Fade-In Animation for Title */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Glowing Button Styling */
+        .btn {
+            background-color: #f1c40f;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.3rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.8);
+        }
+
+        .btn:hover {
+            background-color: #e67e22;
+            box-shadow: 0 0 25px rgba(255, 204, 0, 1);
+            transform: scale(1.1);
+        }
+
+        /* Section Styling (Initial View) */
+        .section-one {
+            display: block;
+        }
+
+        /* Image Gallery Styling */
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .image-gallery img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+            margin: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .message {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #fff;
+            max-width: 600px;
+            line-height: 1.6;
+            animation: fadeIn 3s ease-out;
+        }
+
+        /* Play Song Button Styling */
+        .btn-song {
+            background-color: #f1c40f;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+
+        .btn-song:hover {
+            background-color: #e67e22;
+        }
+
+        /* Audio Container */
+        .audio-container {
+            margin-top: 20px;
+            display: none; /* Hidden until song starts */
+        }
+
+        .emoji {
+            font-size: 2rem;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Title Text (Section One) -->
+    <div class="section-one">
+        <h1>Happy Birthday Bisma 🎉</h1>
+        <!-- Message Section -->
+        <div class="message">
+            <p>May your day be filled with happiness, laughter, and love. You are a blessing in my life, and I wish you all the best today and always!</p>
+            <p>Thank you for being the best friend ever. 💖</p>
+        </div>
+
+        <!-- Button to trigger new page (shows images & song) -->
+        <button class="btn" id="clickMeBtn">Click Me</button>
+    </div>
+
+    <!-- Section Two (Images & Song) -->
+    <div class="section-two" style="display: none;">
+        <h1>Happy Birthday Bisma 🎉 🎂</h1>
+
+        <!-- Emoji Section -->
+        <div class="emoji">
+            🎉 🥳 🎈 🎁 ❤️
+        </div>
+
+        <!-- Image Gallery -->
+        <div class="image-gallery">
+            <!-- Your Picture -->
+            <img src="sabi.jpg" alt="Your Picture">
+            <!-- Best Friend's Picture -->
+            <img src="bisma.jpg" alt="Best Friend's Picture">
+            <img src="p1.jpg" alt="Best Friend's Picture">
+            <img src="p2.jpg" alt="Best Friend's Picture">
+        </div>
+
+        <!-- Play Song Button -->
+        <button class="btn-song" onclick="playAudio()">Play Song 🎶</button>
+
+        <!-- Audio Player -->
+        <audio id="birthdayAudio">
+            <source src="birthday_song.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- Audio Playing Indicator -->
+        <div class="audio-container" id="audioContainer">
+            🎶 The Birthday Song is playing! 🎶
+        </div>
+    </div>
+
+    <script>
+        // Button click to show images and song section
+        document.getElementById("clickMeBtn").onclick = function() {
+            document.querySelector('.section-one').style.display = 'none';  // Hide the first section
+            document.querySelector('.section-two').style.display = 'block'; // Show the second section
+        };
+
+        // Play Audio Function
+        function playAudio() {
+            var audio = document.getElementById("birthdayAudio");
+            var audioContainer = document.getElementById("audioContainer");
+
+            audio.play().then(function() {
+                // Show the audio container once the song is playing
+                audioContainer.style.display = "block";
+            }).catch(function(error) {
+                console.log("Audio play failed: " + error);
+            });
+        }
+
+        // Generate flower animation elements (various flower emojis)
+        const flowers = ["🌸", "🌺", "🌻", "🌼"];  // Array of flower emojis
+        for (let i = 0; i < 50; i++) {  // Increased count of flowers to 50
+            let flower = document.createElement("div");
+            flower.classList.add("flower");
+            flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];  // Randomly select a flower emoji
+            document.body.appendChild(flower);
+        }
+    </script>
+</body>
+</html>
